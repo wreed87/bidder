@@ -9,6 +9,7 @@ from rest_framework.permissions import AllowAny
 import requests
 
 from .serializers import CreateUserSerializer
+from myapp.views import myapp_login
 
 
 CLIENT_ID = '773j9wwAm1JY2BXkISaJPuCuFF424qmusN4SVEI5'
@@ -41,7 +42,8 @@ def register(request):
                 'client_secret': CLIENT_SECRET,
             },
         )
-        return Response(r.json())
+        #return Response(r.json())
+        return myapp_login(request) 
     return Response(serializer.errors)
 
 

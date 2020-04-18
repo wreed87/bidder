@@ -1,0 +1,46 @@
+{% extends 'home.html' %}
+<html>
+	<header>
+		{% block title %}Login{% endblock %}
+		</header>
+	<body>
+	{% block body %} 
+	<div class="container h-100">
+	  <div class="row h-100 justify-content-center align-items-center">
+	  
+
+
+		<form method="post" action="/authentication/register/" class="col-5">
+		{% csrf_token %}
+		
+		<h1 class="text-center">BIDDERS</h1>
+		<div  class= "card text-white bg-dark p-3" >
+		<div class="card-header"><h5 class="card-title">LOG IN</h5>
+		  <div class="card-body">
+    <div class="card-text">You will wonder how Ebay did not think of it</div>
+  </div>
+		
+			<div class="form-group">
+				<input type="text" class="form-control" name="username" id="username" placeholder="username" maxlength= "60" required >
+			</div>
+  <div class="form-group">
+    <input type="password" id="password" name="password" placeholder="password" class="form-control">
+  </div>
+			<div class="form-group row justify-content-center align-items-center">
+			
+			<div class="col-sm-10 btn-group " role="group">
+			<button type="submit" name="register" class="btn btn-primary">Sign In</button>
+			<button type="button" name="login" class="btn btn-secondary" onclick="location.href='/signup/'">Sign Up</button>
+			</div>
+					
+				
+			</div>
+		</form>
+		
+		
+		</div>
+		</div>
+		</div>
+	{% endblock %}
+	</body>
+</html>

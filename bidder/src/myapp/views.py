@@ -42,7 +42,8 @@ def register(request):
                 'client_secret': CLIENT_SECRET,
             },
         )
-        return Response(r.json())
+        # return Response(r.json())
+        return render(request,'login.html',{}) 
     return Response(serializer.errors)
 
 
@@ -114,6 +115,9 @@ def revoke_token(request):
 def myapp_signup(request): #server takes a request
 	return render(request,'signup.html',{})
     
+def myapp_login(request): #server takes a request
+	return render(request,'login.html',{})    
+
 #parent page
 class HomePageView(TemplateView):
     template_name = 'home.html'
