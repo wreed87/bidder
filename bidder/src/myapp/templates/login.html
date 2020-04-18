@@ -1,0 +1,14 @@
+<html>
+<header>
+<title>That’s my first website!</title>
+</header>
+<body>
+Hello world!
+<form method="post" action="/authentication/register/">
+{% csrf_token %}
+	<input id="username" type="text" name="username" maxlength="50" required />
+	<input id="password" type="password" name="password" maxlength= "50" required />
+    <button type="submit" name="register">Register</button>
+</form>
+</body>
+</html>
