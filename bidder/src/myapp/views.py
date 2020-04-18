@@ -118,6 +118,9 @@ def myapp_signup(request): #server takes a request
 def myapp_login(request): #server takes a request
 	return render(request,'login.html',{})    
 
-#parent page
+def myapp_home(request): #server takes a request
+	return render(request,'home.html',{})    
+
+#parent template page
 class HomePageView(TemplateView):
-    template_name = 'home.html'
+    template_name = '_parent.html'

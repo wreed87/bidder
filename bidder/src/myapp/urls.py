@@ -6,7 +6,8 @@ from .views import HomePageView
 
 urlpatterns = [
 	path('signup/', views.myapp_signup, name='myapp'),    
-    path('home/', HomePageView.as_view(), name='home'),      
+    path('_parent/', HomePageView.as_view(), name='_parent'),      
     path('', views.myapp_login, name='myapp'),
+    path('home/', views.myapp_home, name='myapp'),
 ]
 
