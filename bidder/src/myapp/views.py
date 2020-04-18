@@ -10,6 +10,9 @@ import requests
 
 from users.serializers import CreateUserSerializer
 
+
+from django.views.generic import TemplateView
+
 @api_view(['POST'])
 @permission_classes([AllowAny])
 def register(request):
@@ -108,5 +111,9 @@ def revoke_token(request):
 
 
 # Create your views here.
-def myapp_login(request): #server takes a request
-	return render(request,'login.html',{})
+def myapp_signup(request): #server takes a request
+	return render(request,'signup.html',{})
+    
+#parent page
+class HomePageView(TemplateView):
+    template_name = 'home.html'
