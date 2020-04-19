@@ -127,7 +127,20 @@ def myapp_login(request): #server takes a request
 def myapp_home(request): #server takes a request
     if request.user.is_authenticated():
         return render(request,'home.html',{})
-    
+
+
+def myapp_sell(request): #server takes a request
+    #if request.user.is_authenticated():
+        return render(request,'sell.html',{})
+        
+def myapp_history(request): #server takes a request
+    #if request.user.is_authenticated():
+        return render(request,'history.html',{})        
+
+def myapp_bid(request): #server takes a request
+    #if request.user.is_authenticated():
+        return render(request,'bid.html',{})
+
 
 #parent template page
 class HomePageView(TemplateView):

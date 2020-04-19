@@ -2,30 +2,24 @@
 
 <html>
 	<header>
-		{% block title %}Home{% endblock %}
+		{% block title %}History{% endblock %}
 		</header>
 	<body>			
 		{% block navigation %}
-		<button type="button" class="btn btn-primary" onclick="location.href='/home'">Home</button>
+		<button type="button" class="btn btn-secondary" onclick="location.href='/home'">Home</button>
 		<button type="button" class="btn btn-secondary" onclick="location.href='/bid'">Bid</button>
 		<button type="button" class="btn btn-secondary" onclick="location.href='/sell'">Sell</button>
-		<button type="button" class="btn btn-secondary" onclick="location.href='/history">History</button>
+		<button type="button" class="btn btn-primary" onclick="location.href='/history'">History</button>
 		{% endblock %}
 		{% block content %}
 				<div class="card text-center">
   <div class="card-header">
-    News
+    History
   </div>
   <div class="card-body">
     <h5 class="card-title">Latest Software Update</h5>
     <p class="card-text">Due to popular demand, latest update shows the history of all you're bidding history of an item that was sold.
 	Any unforseen issues or bugs can be reported by emailing <a href="mailto:support@CCBidders.com">support@CCBidders.com</a></p>
-	<BR><BR><BR>
-    <h5 class="card-title">Coming Soon</h5>
-	<p class="card-text"> 
-  Searchable items by ID reference
-  <br>Create a watch list of open bid items
-  <br>Sign in with your email to receive notifications before expiring items</p>
   </div>
 </div>
 		{% endblock %}

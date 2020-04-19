@@ -10,5 +10,9 @@ urlpatterns = [
     path('', views.myapp_login, name='myapp_login'),
     path('authentication/registration/', views.registration, name='myapp_home'),    
     path('Home/', views.myapp_login, name='myapp_login'),
+	path('bid/', views.myapp_bid, name='myapp_bid'), 
+	path('sell/', views.myapp_sell, name='myapp_sell'), 
+	path('history/', views.myapp_history, name='myapp_history'), 
 ]
+
 
