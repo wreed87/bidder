@@ -14,8 +14,6 @@ class Item(models.Model):
     itmDescription = models.CharField(max_length=100)
     itmExpireDateTime = models.DateTimeField(default=timezone.now)
     itmOwner = models.CharField(max_length=60)        
-    def __str__(self):
-        return self.name
 
     
 class Auction(models.Model):
@@ -24,5 +22,3 @@ class Auction(models.Model):
     aucIsOpen = models.BooleanField(default=True)
     aucDateTimeCountdown = models.DateTimeField()
     aucWinner = models.CharField(max_length=60)
-    def __str__(self):
-        return self.name

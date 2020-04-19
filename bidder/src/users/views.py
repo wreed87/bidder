@@ -5,11 +5,12 @@ from django.shortcuts import render
 from rest_framework.response import Response
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import AllowAny
-
+from myapp.views import myapp_home
+#from rest_framework import viewsets 
 import requests
 
 from .serializers import CreateUserSerializer
-from myapp.views import myapp_login
+#from myapp.views import myapp_login
 
 
 CLIENT_ID = '773j9wwAm1JY2BXkISaJPuCuFF424qmusN4SVEI5'
@@ -42,8 +43,8 @@ def register(request):
                 'client_secret': CLIENT_SECRET,
             },
         )
-        #return Response(r.json())
-        return myapp_login(request) 
+        return Response(r.json())
+        #return myapp_home(request) 
     return Response(serializer.errors)
 
 
@@ -65,7 +66,10 @@ def token(request):
             'client_secret': CLIENT_SECRET,
         },
     )
-    return Response(r.json())
+    if r.status_code == 200:
+        return render(request, 'home.html',{})
+    else:
+        return Response(r.json())
 
 
 

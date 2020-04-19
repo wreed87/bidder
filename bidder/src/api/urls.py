@@ -15,10 +15,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
+from rest_framework.routers import DefaultRouter 
+from myapp.views import ItemsViewList,AuctionsViewList
+
+router = DefaultRouter() 
+router.register('item', ItemsViewList)
+router.register('auction', AuctionsViewList)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('o/', include('oauth2_provider.urls', namespace='oauth2_provider')),
     path('authentication/', include('users.urls')),
     path('',include('myapp.urls')),
+    path('v1/', include(router.urls))
 ]

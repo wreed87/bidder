@@ -5,9 +5,10 @@ from django.urls import path
 from .views import HomePageView
 
 urlpatterns = [
-	path('signup/', views.myapp_signup, name='myapp'),    
+	path('signup/', views.myapp_signup, name='myapp_signup'),    
     path('_parent/', HomePageView.as_view(), name='_parent'),      
-    path('', views.myapp_login, name='myapp'),
-    path('home/', views.myapp_home, name='myapp'),
+    path('', views.myapp_login, name='myapp_login'),
+    path('authentication/registration/', views.registration, name='myapp_home'),    
+    path('Home/', views.myapp_login, name='myapp_login'),
 ]
 
