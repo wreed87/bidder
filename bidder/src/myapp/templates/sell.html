@@ -16,12 +16,22 @@
   <div class="card-header">
     Sell
   </div>
+  
   <div class="card-body">
-    <h5 class="card-title">Latest Software Update</h5>
-    <p class="card-text">Due to popular demand, latest update shows the history of all you're bidding history of an item that was sold.
-	Any unforseen issues or bugs can be reported by emailing <a href="mailto:support@CCBidders.com">support@CCBidders.com</a></p>
+ 
+
+	
+	
+	{% endblock %}	
   </div>
 </div>
-		{% endblock %}
 	</body>
 	</html>
+	
+	
+	
+	
+	
+	
+	
+	<form method="post" action="/authentication/token/">{% csrf_token %}<button type="submit" class="btn btn-secondary">Home</button></form>

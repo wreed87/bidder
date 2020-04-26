@@ -13,7 +13,7 @@ class Item(models.Model):
     itmIsNew = models.BooleanField()
     itmDescription = models.CharField(max_length=100)
     itmExpireDateTime = models.DateTimeField(default=timezone.now)
-    itmOwner = models.CharField(max_length=60)        
+    itmOwner = models.CharField(max_length=60)
 
     
 class Auction(models.Model):
