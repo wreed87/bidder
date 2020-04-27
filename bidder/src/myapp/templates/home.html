@@ -9,9 +9,36 @@
 		<button type="button" class="btn btn-primary" onclick="location.href='/home'">Home</button>
 		<button type="button" class="btn btn-secondary" onclick="location.href='/bid'">Bid</button>
 		<button type="button" class="btn btn-secondary" onclick="location.href='/sell'">Sell</button>
-		<button type="button" class="btn btn-secondary" onclick="location.href='/history">History</button>
+		<button type="button" class="btn btn-secondary" onclick="location.href='/history'">History</button>
 		{% endblock %}
 		{% block content %}
+		
+{% if variable_login %}
+    <div id="some_flag" title="Some Flag">
+        <input class="form-control bg-warning" readonly type="text" placeholder="Output Message: Successfully logged in">
+		<!-- <div type="text"> {{name}} </div> -->
+    </div>	
+{% endif %}
+
+{% if variable_default %}
+    <div id="some_flag" title="Some Flag">
+        <input class="form-control bg-warning" readonly type="text" placeholder="Output Message:">
+    </div>	
+{% endif %}
+
+{% if variable_item_saved %}
+    <div id="some_flag" title="Some Flag">
+        <input class="form-control bg-warning" readonly type="text" placeholder="Output Message: Item was successfully saved">		
+    </div>	
+{% endif %}
+
+{% if variable_item_unsaved %}
+    <div id="some_flag" title="Some Flag">
+        <input class="form-control bg-warning" readonly type="text" placeholder="Output Message: Wrong credentials">		
+    </div>	
+{% endif %}
+
+		
 				<div class="card text-center">
   <div class="card-header">
     News
@@ -28,6 +55,6 @@
   <br>Sign in with your email to receive notifications before expiring items</p>
   </div>
 </div>
-		{% endblock %}
+		{% endblock %}		
 	</body>
 	</html>

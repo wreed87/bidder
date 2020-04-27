@@ -44,7 +44,6 @@ def register(request):
             },
         )
         return Response(r.json())
-        #return myapp_home(request) 
     return Response(serializer.errors)
 
 
@@ -67,7 +66,7 @@ def token(request):
         },
     )
     if r.status_code == 200:
-        return render(request, 'home.html',{})
+        return Response(r.json())
     else:
         return Response(r.json())
 

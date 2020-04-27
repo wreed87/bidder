@@ -18,20 +18,63 @@
   </div>
   
   <div class="card-body">
+    <h5 class="card-title">Item for Auction Submition</h5>
  
-
-	
-	
-	{% endblock %}	
+<form method="post" action="/submitItem/" > {% csrf_token %}
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputEmail4">Username</label>
+      <input required type="text" class="form-control" id="username" name="username" placeholder="Username">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputPassword4">Password</label>
+      <input required type="password" class="form-control" id="password" name="password" placeholder="Password">
+    </div>
   </div>
+  
+  
+  <div class="form-row">
+  <div class="form-group col-md-6">
+    <label for="itmTitle">Item Title</label>
+    <input required type="text" class="form-control" id="itmTitle" name="itmTitle" placeholder="Item name" maxlength="60">
+  </div>  
+    <div class="form-group col-md-6">
+    <label for="itmExpireDateTime">Auction until</label>
+	<input required type="datetime-local" class="form-control" id="itmExpireDateTime" name="itmExpireDateTime" >
+  </div>
+  </div>
+
+  
+  
+  <div class="form-group">
+    <label for="itmDescription">Description</label>
+    <textarea  required rows="3" class="form-control" id="itmDescription" name="itmDescription" placeholder="Please describe the item" maxlength="100"></textarea>
+  </div> 
+  
+	
+	<div class="form-inline">
+  <div class="form-group col-md-2">
+    <label class="input" for="itmIsNew">Is this a brand new item?</label>
+  </div>
+  <div class="form-row col-md-2">
+  
+      <select required id="itmIsNew" name="itmIsNew" class="form-control">
+        <option></option>
+        <option value="True">Yes</option>
+		<option value="False">No</option>
+      </select>
+	
+  </div>
+    <div class="form-row col-md-3">
+    <button type="submit" class="btn btn-primary">Start Auction</button>
+	</div>
+</div>
+</form>
+		
+	{% endblock %}	
+  
 </div>
 	</body>
-	</html>
-	
-	
-	
-	
-	
-	
+	</html>	
 	
 	<form method="post" action="/authentication/token/">{% csrf_token %}<button type="submit" class="btn btn-secondary">Home</button></form>

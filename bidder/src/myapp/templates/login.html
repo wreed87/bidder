@@ -10,7 +10,7 @@
 	  
 
 
-		<form method="post" action="/authentication/token/" class="col-5">
+		<form method="post" action="/verifiedlogin/" class="col-5">
 		{% csrf_token %}
 		
 		<h1 class="text-center">BIDDERS</h1>
@@ -24,7 +24,7 @@
 				<input type="text" class="form-control" name="username" id="username" placeholder="username" maxlength= "60" required >
 			</div>
   <div class="form-group">
-    <input type="password" id="password" name="password" placeholder="password" class="form-control">
+    <input type="password" id="password" name="password" placeholder="password" class="form-control" required>
 	    <small id="passwordHelpInline" class="text">
       <br>
     </small>
