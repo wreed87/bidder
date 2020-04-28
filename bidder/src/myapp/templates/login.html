@@ -1,3 +1,6 @@
+<!-- Template to view the login page when. First point of entry to the application -->
+
+
 {% extends '_parent.html' %}
 <html>
 	<header>
@@ -5,6 +8,13 @@
 		</header>
 	<body>
 	{% block body %} 
+	
+{% if variable_wrong_login %}
+    <div id="some_flag" title="Some Flag">
+        <input class="form-control bg-warning" readonly type="text" placeholder="Output Message: Wong credentails, please try again">
+    </div>	
+{% endif %}
+
 	<div class="container h-100">
 	  <div class="row h-100 justify-content-center align-items-center">
 	  

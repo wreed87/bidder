@@ -19,6 +19,8 @@ CLIENT_SECRET = '6pv3XObdO2BSOragugcvi7MQ1qtdADg38XHbYSquQY28JKhSHxTYdBPLcbjWr2K
 
 IP_token = 'http://193.61.36.119:8000/o/token/'
 IP_revoke_token ='http://193.61.36.119:8000/o/revoke_token/'
+
+#Registers a new user
 @api_view(['POST'])
 @permission_classes([AllowAny])
 def register(request):
@@ -47,7 +49,7 @@ def register(request):
     return Response(serializer.errors)
 
 
-
+#Request the token
 @api_view(['POST'])
 @permission_classes([AllowAny])
 def token(request):
@@ -71,7 +73,7 @@ def token(request):
         return Response(r.json())
 
 
-
+#Refreshed the user token
 @api_view(['POST'])
 @permission_classes([AllowAny])
 def refresh_token(request):
@@ -90,7 +92,7 @@ def refresh_token(request):
     )
     return Response(r.json())
 
-
+#Revokes user token
 @api_view(['POST'])
 @permission_classes([AllowAny])
 def revoke_token(request):

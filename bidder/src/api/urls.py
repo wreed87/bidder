@@ -22,6 +22,7 @@ router = DefaultRouter()
 router.register('item', ItemsViewList)
 router.register('auction', AuctionsViewList)
 
+#Routing paths for myapp and user apps
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('o/', include('oauth2_provider.urls', namespace='oauth2_provider')),

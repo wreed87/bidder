@@ -1,3 +1,6 @@
+<!-- Template to view to view the open auctions and allow users to make a bid -->
+
+
 {% extends '_parent.html' %}
 
 <html>
@@ -12,15 +15,131 @@
 		<button type="button" class="btn btn-secondary" onclick="location.href='/history'">History</button>
 		{% endblock %}
 		{% block content %}
+		
+{% if variable_won %}
+    <div id="some_flag" title="Some Flag">
+        <input class="form-control bg-warning" readonly type="text" placeholder="Output Message: Congratulations! you are winning">
+    </div>	
+{% endif %}	
+
+{% if variable_lost %}
+    <div id="some_flag" title="Some Flag">
+        <input class="form-control bg-warning" readonly type="text" placeholder="Output Message: I am afraid amount is too low">
+    </div>	
+{% endif %}			
+
+{% if variable_owner %}
+    <div id="some_flag" title="Some Flag">
+        <input class="form-control bg-warning" readonly type="text" placeholder="Output Message: Cheating! you can't bid for your own item">
+    </div>	
+{% endif %}		
+		
 				<div class="card text-center">
   <div class="card-header">
     Bid
   </div>
+
+
+
   <div class="card-body">
-    <h5 class="card-title">Latest Software Update</h5>
-    <p class="card-text">Due to popular demand, latest update shows the history of all you're bidding history of an item that was sold.
-	Any unforseen issues or bugs can be reported by emailing <a href="mailto:support@CCBidders.com">support@CCBidders.com</a></p>
+{% if bid_post %}
+<form method="post" action="/bidmade/" > {% csrf_token %}
+{% else %}
+<form method="post" action="/bidverified/" > {% csrf_token %}
+
+{% endif %}
+  <div class="form-row">
+    <div class="form-group col-md-3">
+      <input required type="text" class="form-control" id="username" name="username" placeholder="Username">
+    </div>
+    <div class="form-group col-md-4">
+      <input required type="password" class="form-control" id="password" name="password" placeholder="Password">
+    </div>
+	
+	{% if bid_ready %}
+	<div class="form-group col-md-1">
+      <input required type="number" class="form-control" min="0" id="id" name="id" placeholder="ID">
+    </div>
+	    <div class="form-group col-md-2">
+      <input required type="number" min="0" class="form-control" id="price" name="price" placeholder="Bid" step="0.01">
+    </div>	
+	{% endif %}
+	<div class="form-group col-md-2">
+    <button type="submit" class="btn btn-primary">Confirm</button>
+	</div>
   </div>
+  </form>
+  
+
+  
+    <h5 class="card-title">Open Auctions</h5>
+
+{{newBid}}
+
+<div class="container ">
+  <div class="row align-items-start bg-info">
+    <div class="col-1 bg-info">
+      ID
+    </div>
+    <div class="col">
+      Title
+    </div>
+	<div class="col-3">
+      Description
+    </div>
+	<div class="col">
+      Condition
+    </div>
+	<div class="col">
+      Item Owner
+    </div>
+	<div class="col">
+      Highest Bidder
+    </div>
+	<div class="col">
+      Highest Bid (£)
+    </div>
+	<div class="col">
+      Auction Ends
+    </div>
+  </div>
+  
+  {{table_list}}
+  
+{% for bid in bidList %}
+	{% if bid.aucIsOpen %}
+	  <div class="row align-items-start bg-light text-dark" style="border-bottom: 1px solid black;">
+		<div class="col-1">
+			{{bid.id}} 	
+		</div>
+		<div class="col">
+			{{bid.itmTitle}}
+		</div>
+		<div class="col-3">
+			{{bid.itmDescription}}
+		</div>
+		<div class="col">
+			{% if bid.itmIsNew %}New{% else %}Used{% endif %}
+		</div>	
+		<div class="col">
+			{{bid.itmOwner}}
+		</div>	
+		<div class="col">
+			{{bid.aucBidder}}
+		</div>	
+		<div class="col">
+			{{bid.aucPrice}}
+		</div>	
+		<div class="col">
+			{{bid.aucDateTimeCountdown}}
+		</div>	
+	</div> 			
+	{% endif %}
+	{% endfor %}
+</div>
+
+
+
 </div>
 		{% endblock %}
 	</body>

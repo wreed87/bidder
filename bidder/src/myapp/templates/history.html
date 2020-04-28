@@ -1,3 +1,6 @@
+<!-- Template to view the closed auctions showing additional details such as bid winner and amount -->
+
+
 {% extends '_parent.html' %}
 
 <html>
@@ -33,52 +36,59 @@
   </form>
   
   
-    <h5 class="card-title">***History Update Sold Items***</h5>
+   
+    <h5 class="card-title">Closed Auctions</h5>
 
 
 
-<div class="container">
-  <div class="row align-items-start">
-    <div class="col bg-info">
+<div class="container ">
+  <div class="row align-items-start bg-info">
+    <div class="col-1 bg-info">
+      ID
+    </div>
+    <div class="col">
       Title
     </div>
-    <div class="col-6 bg-info">
-      Description
+	<div class="col-3">
+      Original Owner
     </div>
-    <div class="col bg-info">
-      New Item
+	<div class="col">
+      Bid Winner
     </div>
-	<div class="col-2 bg-info">
-      Bid Ends
+	<div class="col">
+      Paid Price (£)
     </div>
-	<div class="col bg-info">
-      Item Owner
+	<div class="col">
+      Purchased Date
     </div>
   </div>
   
   {{table_list}}
   
-{% for item in itemList %}
-	{% if item.itmIsNew %}
-	  <div class="row align-items-start" style="border-bottom: 1px solid black;">
-	   <div class="col bg-light text-dark">
-			{{item.itmTitle}}
+{% for bid in bidList %}
+	{% if bid.aucIsOpen == False %}
+	  <div class="row align-items-start bg-light text-dark" style="border-bottom: 1px solid black;">
+		<div class="col-1">
+			{{bid.id}} 	
 		</div>
-		<div class="col-6 bg-light text-dark">
-			{{item.itmDescription}} 	
+		<div class="col">
+			{{bid.itmTitle}}
 		</div>
-		<div class="col bg-light text-dark">
-			{{item.itmIsNew}}
+		<div class="col-3">
+			{{bid.itmOwner}}
 		</div>
-		<div class="col-2 bg-light text-dark">
-			{{item.itmExpireDateTime}}
-		</div>
-		<div class="col bg-light text-dark">
-			{{item.itmOwner}}
-		</div>			
-	  </div> 
-	{% endif %}	
-{% endfor %}
+		<div class="col">
+			{{bid.aucWinner}}
+		</div>	
+		<div class="col">
+			{{bid.aucPrice}}
+		</div>	
+		<div class="col">
+			{{bid.itmExpireDateTime}}
+		</div>		
+	</div> 			
+	{% endif %}
+	{% endfor %}
 </div>
 
 

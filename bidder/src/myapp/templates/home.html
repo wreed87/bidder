@@ -1,3 +1,6 @@
+<!-- Entry point when users login. Homepage used for news and notifications -->
+
+
 {% extends '_parent.html' %}
 
 <html>
@@ -16,9 +19,11 @@
 {% if variable_login %}
     <div id="some_flag" title="Some Flag">
         <input class="form-control bg-warning" readonly type="text" placeholder="Output Message: Successfully logged in">
-		<!-- <div type="text"> {{name}} </div> -->
     </div>	
 {% endif %}
+
+
+{% for out in outcome %}{{out}}{% endfor %}
 
 {% if variable_default %}
     <div id="some_flag" title="Some Flag">
@@ -28,7 +33,8 @@
 
 {% if variable_item_saved %}
     <div id="some_flag" title="Some Flag">
-        <input class="form-control bg-warning" readonly type="text" placeholder="Output Message: Item was successfully saved">		
+        <input class="form-control bg-warning" readonly type="text" placeholder="Output Message: Item was successfully saved">	
+		<!-- <div type=	"text"> {{name}} </div> -->
     </div>	
 {% endif %}
 

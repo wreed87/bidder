@@ -1,9 +1,10 @@
 # myapp/urls.py This file is in the myapp folder!
 from . import views
 from django.urls import path
-
 from .views import HomePageView
 
+
+#List of all redirectable URLs invoking the correct view methods.
 urlpatterns = [
 	path('signup/', views.myapp_signup, name='myapp_signup'),    
     path('_parent/', HomePageView.as_view(), name='_parent'),      
@@ -13,7 +14,9 @@ urlpatterns = [
 	path('bid/', views.myapp_bid, name='myapp_bid'), 
 	path('sell/', views.myapp_sell, name='myapp_sell'), 
 	path('history/', views.myapp_history, name='myapp_history'),    
-	path('historyverified/', views.myapp_history_table, name='myapp_history_table'), 
+	path('historyverified/', views.myapp_history_table, name='myapp_history_table'),
+	path('bidverified/', views.myapp_bid_table, name='myapp_bid_table'), 
+    path('bidmade/', views.myapp_bidmade, name='myapp_bidmade'),
 	path('submitItem/', views.start_auction, name='start_auction'),    
 	path('verifiedlogin/', views.verified_login, name='verified_login'), 
 ]
